@@ -2,10 +2,13 @@ package tick_tack_toe.skilrex.ru.tictactoe;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class TicTacToe extends AppCompatActivity {
@@ -98,6 +101,24 @@ public class TicTacToe extends AppCompatActivity {
 
         tablelayout = (TableLayout) findViewById(R.id.main_l);
         buildGameField(); // создание игрового поля
+
+        TextView tvResult = (TextView)findViewById(R.id.textView1);
+
+//Узнаем размеры экрана из ресурсов
+        DisplayMetrics displaymetrics = getResources().getDisplayMetrics();
+
+        //узнаём размеры экрана из класса Display
+        Display display= getWindowManager().getDefaultDisplay();
+        DisplayMetrics metricsB = new DisplayMetrics();
+        display.getMetrics(metricsB);
+
+        tvResult.setText("[Используя ресурсы]\n"+
+                "Ширина: " + displaymetrics.widthPixels + "\n" +
+                "Высота: " + displaymetrics.heightPixels + "\n"
+                + "\n" +
+                "[Используя Display] \n" +
+                "Ширина: " + metricsB.widthPixels + "\n" +
+                "Высота: " + metricsB.heightPixels + "\n");
     }
 
     public TicTacToe()
@@ -118,13 +139,12 @@ public class TicTacToe extends AppCompatActivity {
                 button.setOnClickListener(new Listener(i, j)); // установка слушателя, реагирующего на клик по кнопке
                 row.addView(button, new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                         TableRow.LayoutParams.WRAP_CONTENT)); // добавление кнопки в строку таблицы
-                button.setWidth(160);
-                button.setHeight(160);
+                button.setWidth(240);
+                button.setHeight(250);
             }
             tablelayout.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                     TableLayout.LayoutParams.WRAP_CONTENT)); // добавление строки в таблицу
         }
     }
-
 
 }
