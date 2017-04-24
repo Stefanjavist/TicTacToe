@@ -17,6 +17,8 @@ public class Game
     // игроки
     private Player[] players;
 
+
+
     // начата ли игра?
     private boolean started;
 
@@ -30,8 +32,6 @@ public class Game
     private int squareCount;
 
     private WinnerCheckerInterface[] winnerCheckers;
-
-
     // Конструктор
     public Game()
     {
@@ -132,6 +132,7 @@ public class Game
         }
         filled = 0;
     }
+
 
 }
 

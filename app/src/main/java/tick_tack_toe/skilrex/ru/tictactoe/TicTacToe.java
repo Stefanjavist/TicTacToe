@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class TicTacToe extends AppCompatActivity {
 
+
     private Game game;
 
     public class Listener implements View.OnClickListener
@@ -85,7 +86,6 @@ public class TicTacToe extends AppCompatActivity {
         }
     }
 
-
     private TableLayout tablelayout; // экземпляр нашего табличного макета
 
     private Button[][] buttons = new Button[3][3];
@@ -125,5 +125,6 @@ public class TicTacToe extends AppCompatActivity {
                     TableLayout.LayoutParams.WRAP_CONTENT)); // добавление строки в таблицу
         }
     }
+
 
 }
