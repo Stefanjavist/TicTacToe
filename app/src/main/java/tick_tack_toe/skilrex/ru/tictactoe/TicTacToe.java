@@ -1,5 +1,6 @@
 package tick_tack_toe.skilrex.ru.tictactoe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -99,6 +100,8 @@ public class TicTacToe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+
+
         tablelayout = (TableLayout) findViewById(R.id.main_l);
         buildGameField(); // создание игрового поля
 
@@ -119,6 +122,18 @@ public class TicTacToe extends AppCompatActivity {
                 "[Используя Display] \n" +
                 "Ширина: " + metricsB.widthPixels + "\n" +
                 "Высота: " + metricsB.heightPixels + "\n");
+    }
+
+    public void onClick(View v){
+        switch(v.getId()){
+            case R.id.btnActTwo:
+                Intent intent = new Intent(this, ActivityTwo.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+
+        }
     }
 
     public TicTacToe()
